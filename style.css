@@ -1,157 +1,419 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-body {
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
+<body>
 
-    /* Background */
-    background: url("image/mhabg.jpg");
+    <main class="container">
 
-    background-size: cover;
-    background-position: center;
+        <section class="form-box">
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+            <h1>Create Account</h1>
+            <p class="subtitle">Register a new account</p>
 
-body::before,
-body::after {
-    content: "";
-    position: fixed;
-    border-radius: 50%;
-    filter: blur(10px);
-    z-index: -1;
-}
+            <form id="registerForm">
 
-.container {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        
+                <div class="input-group">
 
-.form-box {
-    width: 400px;
-    padding: 40px;
+                    <label for="fullname">Full Name</label>
 
-    /* Glass effect */
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+                    <input
+                        type="text"
+                        id="fullname"
+                        name="fullname"
+                        placeholder="Enter your full name">
 
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
+                    <p id="fullnameError" class="field-error"></p>
 
-    /* Glass shadow */
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.25),
-        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+                </div>
 
-    color: white;
-}
 
-h1 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 8px;
-}
+                <div class="input-group">
 
-.subtitle {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 30px;
-}
+                    <label for="email">Email</label>
 
-.input-group {
-    margin-bottom: 20px;
-}
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email">
 
-.input-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 14px;
-    font-weight: bold;
-}
+                    <p id="emailError" class="field-error"></p>
 
-.input-group input {
-    width: 100%;
-    padding: 14px 16px;
+                </div>
 
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-radius: 10px;
 
-    color: white;
-    font-size: 15px;
-    outline: none;
+                <div class="input-group">
 
-    transition: 0.3s ease;
-}
+                    <label for="password">Password</label>
 
-.input-group input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Create a password">
 
-.input-group input:focus {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: white;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
+                    <p id="passwordError" class="field-error"></p>
 
-button {
-    width: 100%;
-    padding: 14px;
+                </div>
 
-    border: none;
-    border-radius: 10px;
 
-    background: rgba(255, 255, 255, 0.85);
-    color: #5b21b6;
 
-    font-size: 16px;
-    font-weight: bold;
+                <div class="input-group">
 
-    cursor: pointer;
-    transition: 0.3s ease;
-}
+                    <label for="confirm-password">
+                        Confirm Password
+                    </label>
 
-button:hover {
-    background: white;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-}
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        name="confirm-password"
+                        placeholder="Confirm your password">
 
-.account-text {
-    text-align: center;
-    margin-top: 25px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.85);
-}
+                    <p id="confirmPasswordError" class="field-error"></p>
 
-.account-text a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-}
+                </div>
 
-.account-text a:hover {
-    text-decoration: underline;
-}
 
-/* Mobile */
-@media (max-width: 480px) {
-    .form-box {
-        width: 100%;
-        padding: 30px 25px;
-    }
+                <button type="submit">
+                    Register
+                </button>
 
-    h1 {
-        font-size: 28px;
-    }
-}
+            </form>
+
+
+            <p class="account-text">
+
+                Already have an account?
+
+                <a href="login.html">
+                    Login here
+                </a>
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        const fullname =
+            document.getElementById("fullname");
+
+        const email =
+            document.getElementById("email");
+
+        const password =
+            document.getElementById("password");
+
+        const confirmPassword =
+            document.getElementById("confirm-password");
+
+
+        const fullnameError =
+            document.getElementById("fullnameError");
+
+        const emailError =
+            document.getElementById("emailError");
+
+        const passwordError =
+            document.getElementById("passwordError");
+
+        const confirmPasswordError =
+            document.getElementById("confirmPasswordError");
+
+
+        /*
+        ========================================
+        CLEAR ERROR
+        ========================================
+        */
+
+        function clearErrors() {
+
+            fullnameError.textContent = "";
+            emailError.textContent = "";
+            passwordError.textContent = "";
+            confirmPasswordError.textContent = "";
+
+            fullname.classList.remove("input-error");
+            email.classList.remove("input-error");
+            password.classList.remove("input-error");
+            confirmPassword.classList.remove("input-error");
+
+        }
+
+
+        /*
+        ========================================
+        SHOW ERROR
+        ========================================
+        */
+
+        function showError(input, errorElement, message) {
+
+            input.classList.add("input-error");
+
+            errorElement.textContent = message;
+
+        }
+
+
+        /*
+        ========================================
+        REGISTER VALIDATION
+        ========================================
+        */
+
+        registerForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            clearErrors();
+
+            let valid = true;
+
+
+            /*
+            ====================================
+            FULL NAME
+            ====================================
+            */
+
+            const namePattern = /^[A-Za-z\s]+$/;
+
+            if (fullname.value.trim() === "") {
+
+                showError(
+                    fullname,
+                    fullnameError,
+                    "Please enter your full name."
+                );
+
+                valid = false;
+
+            }
+
+            else if (!namePattern.test(fullname.value.trim())) {
+
+                showError(
+                    fullname,
+                    fullnameError,
+                    "Full name must contain letters only."
+                );
+
+                valid = false;
+
+            }
+
+
+            /*
+            ====================================
+            EMAIL
+            ====================================
+            */
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (email.value.trim() === "") {
+
+                showError(
+                    email,
+                    emailError,
+                    "Please enter your email."
+                );
+
+                valid = false;
+
+            }
+
+            else if (!emailPattern.test(email.value.trim())) {
+
+                showError(
+                    email,
+                    emailError,
+                    "Please enter a valid email address."
+                );
+
+                valid = false;
+
+            }
+
+
+            /*
+            ====================================
+            PASSWORD
+            ====================================
+            */
+
+            if (password.value === "") {
+
+                showError(
+                    password,
+                    passwordError,
+                    "Please create a password."
+                );
+
+                valid = false;
+
+            }
+
+            else if (password.value.length < 6) {
+
+                showError(
+                    password,
+                    passwordError,
+                    "Password must be at least 6 characters."
+                );
+
+                valid = false;
+
+            }
+
+
+            /*
+            ====================================
+            CONFIRM PASSWORD
+            ====================================
+            */
+
+            if (confirmPassword.value === "") {
+
+                showError(
+                    confirmPassword,
+                    confirmPasswordError,
+                    "Please confirm your password."
+                );
+
+                valid = false;
+
+            }
+
+            else if (
+                password.value !== confirmPassword.value
+            ) {
+
+                showError(
+                    confirmPassword,
+                    confirmPasswordError,
+                    "Passwords do not match."
+                );
+
+                valid = false;
+
+            }
+
+
+            /*
+            ====================================
+            CHECK EXISTING ACCOUNT
+            ====================================
+            */
+
+            const registeredEmail =
+                localStorage.getItem("registeredEmail");
+
+
+            if (
+                valid &&
+                registeredEmail &&
+                email.value.trim() === registeredEmail
+            ) {
+
+                showError(
+                    email,
+                    emailError,
+                    "An account with this email already exists."
+                );
+
+                valid = false;
+
+            }
+
+
+            /*
+            ====================================
+            SAVE ACCOUNT
+            ====================================
+            */
+
+            if (valid) {
+
+                localStorage.setItem(
+                    "registeredFullname",
+                    fullname.value.trim()
+                );
+
+                localStorage.setItem(
+                    "registeredEmail",
+                    email.value.trim()
+                );
+
+                localStorage.setItem(
+                    "registeredPassword",
+                    password.value
+                );
+
+
+                window.location.href = "login.html";
+
+            }
+
+        });
+
+
+        /*
+        ========================================
+        REMOVE ERROR WHEN USER STARTS TYPING
+        ========================================
+        */
+
+        fullname.addEventListener("input", function() {
+
+            fullnameError.textContent = "";
+            fullname.classList.remove("input-error");
+
+        });
+
+
+        email.addEventListener("input", function() {
+
+            emailError.textContent = "";
+            email.classList.remove("input-error");
+
+        });
+
+
+        password.addEventListener("input", function() {
+
+            passwordError.textContent = "";
+            password.classList.remove("input-error");
+
+        });
+
+
+        confirmPassword.addEventListener("input", function() {
+
+            confirmPasswordError.textContent = "";
+            confirmPassword.classList.remove("input-error");
+
+        });
+
+    </script>
+
+</body>
+</html>
